@@ -1,0 +1,35 @@
+$accent-color: #5f875f;
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+$font-family: 'Josefin Sans', 'sans-serif';
+body {
+}
+.index{
+  font-family: $font-family;
+  .header{
+    padding-left: 20px;
+    width: 100vw;
+    background-color: $accent-color;
+    height: 80px;
+    p{
+      font-size: 1.5em;
+      color: lighten($accent-color, 20%);
+      line-height: 80px;
+    }
+  }
+  .sidebar{
+    .each {
+      vertical-align: middle;
+      padding-top: 12px;
+      // background: red;
+      margin-top: 5px;
+      p{
+        line-height: 12px;
+      }
+    }
+  }
+  #chart{
+    height: 550px ;
+    width: inherit;
+    // background: red;
+  }
+}
