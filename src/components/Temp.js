@@ -8,7 +8,7 @@ import c3 from './c3';
 import d3 from './d3';
 import 'c3/c3.css';
 import io from 'socket.io-client'
-let socket = io(`http://localhost:1724`)
+let socket = io(`http://96.43.172.104/:1724`)
 
 import React from 'react';
 class Temp extends React.Component {
