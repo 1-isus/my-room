@@ -37,7 +37,7 @@ class Temp extends React.Component {
       <div>
         <div className="display col-md-12 col-xs-12 col-sm-12">
           <div className="label col-md-12 col-xs-12 col-sm-12">
-            <p className="text-center">le Room</p>
+            <p className="text-center">le room</p>
           </div>
           <div className="temp col-md-12 col-xs-12 col-sm-12">
             <p className="text-center">{this.state.temp}&deg;C</p>
