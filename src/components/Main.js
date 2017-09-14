@@ -1,7 +1,7 @@
 require('normalize.css/normalize.css');
 require('styles/App.scss');
 
-import Chart from './LiveChart.js';
+// import Chart from './LiveChart.js';
 import Temp from './Temp.js';
 import React from 'react';
 

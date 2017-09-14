@@ -7,17 +7,37 @@ body {
   background-color: $accent-color;
   font-family: $font-family;
   height: 100vh;
-  .temp {
+  .display {
     position: absolute;
     width: 100vw;
-    p {
-      color: lighten($accent-color, 10%);
-      margin-top: 50vh;
-      font-size: 12em;
-      vertical-align: middle;
-      transform: translateY(-50%);
+    padding: 0px 0px;
+    margin-top: 50vh;
+    transform: translateY(-50%);
+    .label {
+      p {
+        position: relative;
+        color: lighten($accent-color, 10%);
+        vertical-align: middle;
+        font-size: 2.4em;
+      }
     }
+    .temp {
+      p {
 
+        position: relative;
+        color: lighten($accent-color, 10%);
+        vertical-align: middle;
+        font-size: 10em;
+      }
+    }
+    .humidity {
+      p {
+        color: lighten($accent-color, 10%);
+        vertical-align: middle;
+        font-size: 1.2em;
+      }
+
+    }
   }
   #chart{
     height: 550px ;
