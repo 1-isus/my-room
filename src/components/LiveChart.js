@@ -47,6 +47,9 @@ class Chart extends React.Component {
             Temperature: '#e1a4a1',
         },
       },
+      zoom: {
+        enabled: true
+      },
       axis: {
         x: {
             label: 'Hour',
