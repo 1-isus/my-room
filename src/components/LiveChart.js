@@ -25,7 +25,20 @@ class Chart extends React.Component {
     };
 
     socket.on('temperature', msg => {
+      // var newTemp = msg.point.temp;
+      var now = new Date();
+      var newTemp =this.state.data[0];
+      var newHour =this.state.data[1];
+      newTemp.push(msg.point.temp);
+      newHour.push(dateFormat(now, "HH"));
+      this.setState({
+        data: [
+          newTemp,
+          newHour
+        ]
+      });
       this.renderChart();
+      // this.getInitialValues();
 
     });
 
@@ -68,6 +81,7 @@ class Chart extends React.Component {
     var now = new Date();
     this.state.query = dateFormat(now, "dS mmmm, yyyy");
     axios.get(`http://96.43.172.104:3000/points/${this.state.query}`)
+    // axios.get(`http://96.43.172.104:3000/points`)
       .then((response) => {
         var DataSet = response.data.data;
         var newTemp =this.state.data[0];
@@ -100,7 +114,7 @@ class Chart extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
-
+      this.renderChart();
   }
   componentWillMount(){
     this.getInitialValues();

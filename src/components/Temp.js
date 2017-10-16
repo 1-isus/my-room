@@ -14,15 +14,15 @@ class Temp extends React.Component {
     super(props);
     this.state = {
       temp: 27,
-      humid: 50
+      humid: 50,
+      showTempChart: true,
+      buttonText: "Show Chart"
     };
     socket.on('temperature', msg => {
       var now = new Date();
       var newTemp = msg.point.temp;
       var newHumidity = msg.point.humidity;
       this.setState({
-        showTempChart: true,
-        buttonText: "Show Chart",
         date: dateFormat(now, "dddd, mmmm dS, yyyy"),
         temp: newTemp,
         humid: newHumidity
@@ -36,7 +36,7 @@ class Temp extends React.Component {
       showTempChart: !this.state.showTempChart
     });
     if (this.state.showTempChart) {
-      this.state.buttonText = " Hide Chart"
+      this.state.buttonText = "Hide Chart"
     } else {
       this.state.buttonText = "Show Chart"
     }
