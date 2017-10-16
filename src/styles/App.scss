@@ -1,7 +1,13 @@
 $accent-color: #ce5c58;
+$text-color: #e0a39f;
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 $font-family: 'Josefin Sans', 'sans-serif';
 body {
+  @media screen
+  and (min-width: 320px)
+  and (max-width: 667px) {
+    line-height: 1.6em;
+  }
 }
 .index{
   background-color: $accent-color;
@@ -15,33 +21,90 @@ body {
     transform: translateY(-50%);
     .label {
       p {
+        @media screen
+        and (min-width: 320px)
+        and (max-width: 667px) {
+          font-size: 1.2em;
+        }
         position: relative;
-        color: lighten($accent-color, 10%);
+        color: lighten($text-color, 5%);
         vertical-align: middle;
-        font-size: 2em;
+        font-size: 1.5em;
       }
     }
     .temp {
       p {
+        @media screen
+        and (min-width: 320px)
+        and (max-width: 667px) {
+          font-size: 3em;
+        }
 
         position: relative;
-        color: lighten($accent-color, 10%);
+        color: lighten($text-color, 5%);
         vertical-align: middle;
-        font-size: 8em;
+        font-size: 4em;
       }
     }
     .humidity {
       p {
-        color: lighten($accent-color, 10%);
+
+        @media screen
+        and (min-width: 320px)
+        and (max-width: 667px) {
+          font-size: 1em;
+        }
+        color: lighten($text-color, 5%);
         vertical-align: middle;
-        font-size: 1em;
+        font-size: .9em;
       }
 
     }
+    .chartContainer {
+      p {
+        @media screen
+        and (min-width: 320px)
+        and (max-width: 667px) {
+          font-size: 1em;
+        }
+        color: lighten($text-color, 5%);
+        vertical-align: middle;
+        font-size: .9em;
+      }
+      input[type=button] {
+        width: 10%;
+        padding: 12px 20px;
+        margin:  0 auto;
+        background-color: transparent;
+        color: $text-color;
+        border-color: $text-color;
+        border-style: none;
+        display:block;
+        @media screen
+        and (min-width: 320px)
+        and (max-width: 667px) {
+          width: 30%;
+          font-size: .9em;
+        }
+      }
+      :focus {
+          outline: -webkit-focus-ring-color auto 0px;
+      }
+      margin: 0 auto;
+      padding: 0px;
+    }
   }
   #chart{
-    height: 550px ;
+    @media screen
+    and (min-width: 320px)
+    and (max-width: 667px) {
+      height: 55vh;
+      margin-top: 2.5em;
+    }
+    padding: 0px;
+    margin-top: 5em;
+    margin-left: 0px;
+    height: 50vh;
     width: inherit;
-    // background: red;
   }
 }
