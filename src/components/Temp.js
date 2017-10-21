@@ -1,37 +1,45 @@
 require('normalize.css/normalize.css');
 require('styles/App.scss');
 require('styles/Chart.scss');
+import React from 'react';
+var dateFormat = require('dateformat');
+var unix = require('to-unix-timestamp');
 import Chart from './LiveChart.js';
+import io from 'socket.io-client';
 import c3 from './c3';
 import d3 from './d3';
 import 'c3/c3.css';
-import io from 'socket.io-client'
+
 let socket = io(`http://96.43.172.104:1724`)
-var dateFormat = require('dateformat');
-import React from 'react';
+
 class Temp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      temp: 27,
-      humid: 50,
+      temp: "--",
+      humid: "--",
       showTempChart: true,
       buttonText: "Show Chart"
     };
+
+    /** listen for data from socket */
+
     socket.on('temperature', msg => {
       var now = new Date();
       var newTemp = msg.point.temp;
       var newHumidity = msg.point.humidity;
       this.setState({
-        date: dateFormat(now, "dddd, mmmm dS, yyyy"),
+        date: dateFormat(now, "dddd mmmm dS, yyyy"),
         temp: newTemp,
         humid: newHumidity
       });
     });
-    this._handlePress = this._handlePress.bind(this);
+    this.showChart = this.showChart.bind(this);
   }
-  _handlePress=()=>{
-    console.log('Pressed!');
+
+  /** call function when show chart/ hide chart button is pressed. */
+  showChart=()=>{
+    console.log(unix(new Date()));
     this.setState({
       showTempChart: !this.state.showTempChart
     });
@@ -61,7 +69,7 @@ class Temp extends React.Component {
             <If condition={!this.state.showTempChart}>
               <Chart/>
             </If>
-            <input type="button" onClick={() => this._handlePress()} value={this.state.buttonText}/>
+            <input type="button" onClick={() => this.showChart()} value={this.state.buttonText}/>
           </div>
         </div>
       </div>
